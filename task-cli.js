@@ -18,7 +18,9 @@ if (!fs.existsSync("tasks.json")) {
 }
 try {
     if (args[0] == "add") {
-        tasks.push(addTask(args, tasks));
+        addTask(args, tasks);
+    } else if (args[0] == "delete") {
+        deleteTask(args, tasks);
     }
 } catch (err) {
     console.error(err.message);
@@ -36,15 +38,40 @@ function getArgs() {
 
 function addTask(args, tasks) {
     if (args.length != 2) {
-        throw new Error("ERROR: 1 task required");
+        throw new Error("ERROR: Specify a description");
     }
     const id = tasks.length + 1;
+    const task = createTask(args, id);
+    tasks.push(task);
     console.log(`Task added successfully (ID: ${id})`);
+}
+
+function createTask(args, id) {
     return {
         id: id,
         description: args[1],
         status: "todo",
         createdAt: new Date().toLocaleString(),
         updatedAt: new Date().toLocaleString(),
+    }
+}
+
+function deleteTask(args, tasks) {
+    if (args.length != 2) {
+        throw new Error("ERROR: Specify an ID");
+    } else if (Number.isNaN(args[1]) == true) {
+        throw new Error("ERROR: ID must be a number");
+    } else if (args[1] < 1 || args[1] > tasks.length) {
+        throw new Error("ERROR: ID is out of bounds");
+    }
+    const id = args[1];
+    tasks.splice(id - 1, 1);
+    updateTasksIds(tasks);
+    console.log(`Task removed successfully (ID: ${id})`);
+}
+
+function updateTasksIds(tasks) {
+    for (let i = 0; i < tasks.length; i++) {
+        tasks[i].id = i + 1;
     }
 }
