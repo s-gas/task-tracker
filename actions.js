@@ -1,20 +1,17 @@
 export function executeAction(args, tasks) {
+    const actions = {
+        add: addTask,
+        delete: deleteTask,
+        update: updateTask,
+        "mark-in-progress": markTaskInProgress,
+        "mark-done": markTaskDone,
+        list: listTasks,
+    };
     let action = args[0];
-    if (action == "add") {
-        addTask(args, tasks);
-    } else if (action == "delete") {
-        deleteTask(args, tasks);
-    } else if (action == "update") {
-        updateTask(args, tasks);
-    } else if (action == "mark-in-progress") {
-        markTaskInProgress(args, tasks);
-    } else if (action == "mark-done") {
-        markTaskDone(args, tasks);
-    } else if (action == "list") {
-        listTasks(args, tasks);
-    } else {
-        throw new Error("ERROR: Invalid action");
-    }
+    if (!actions[action]) {
+        throw new Error("Invalid action");
+    } 
+    actions[action](args, tasks);
 }
 
 function addTask(args, tasks) {
@@ -127,7 +124,7 @@ function listAll(tasks) {
     let flag = false;
     for (let v of tasks) {
         flag = true;
-        console.log(v);
+        console.table(v);
     }
     if (flag == false) {
         console.log("No tasks found");
@@ -139,7 +136,7 @@ function listDone(tasks) {
     for (let v of tasks) {
         if (v.status == "done") {
             flag = true;
-            console.log(v);
+            console.table(v);
         }
     }
     if (flag == false) {
@@ -152,7 +149,7 @@ function listTodo(tasks) {
     for (let v of tasks) {
         if (v.status == "todo") {
             flag = true;
-            console.log(v);
+            console.table(v);
         }
     }
     if (flag == false) {
@@ -165,7 +162,7 @@ function listInProgress(tasks) {
     for (let v of tasks) {
         if (v.status == "in-progress") {
             flag = true;
-            console.log(v);
+            console.table(v);
         }
     }
     if (flag == false) {

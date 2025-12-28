@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { executeAction } from "./actions.js";
 import fs from "fs";
+
 let tasks = [];
 let args;
 
