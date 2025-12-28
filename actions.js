@@ -106,15 +106,7 @@ function listTasks(args, tasks) {
     if (args.length == 1) {
         listAll(tasks);
     } else if (args.length == 2) {
-        if (args[1] == "done") {
-            listDone(tasks);
-        } else if (args[1] == "todo") {
-            listTodo(tasks);
-        } else if (args[1] == "in-progress") {
-            listInProgress(tasks);
-        } else {
-            throw new Error("ERROR: Invalid argument");
-        }
+        listFiltered(tasks, args[1]);
     } else {
         throw new Error("ERROR: Invalid number of arguments");
     }
@@ -131,41 +123,15 @@ function listAll(tasks) {
     }
 }
 
-function listDone(tasks) {
-    let flag = false;
-    for (let v of tasks) {
-        if (v.status == "done") {
-            flag = true;
-            console.table(v);
-        }
+function listFiltered(tasks, status) {
+    const statuses = ["done", "todo", "in-progress"];
+    if (!statuses.includes(status)) {
+        throw new Error("ERROR: Invalid status");
     }
-    if (flag == false) {
-        console.log("No tasks found");
-    }
-}
-
-function listTodo(tasks) {
-    let flag = false;
-    for (let v of tasks) {
-        if (v.status == "todo") {
-            flag = true;
-            console.table(v);
-        }
-    }
-    if (flag == false) {
-        console.log("No tasks found");
-    }
-}
-
-function listInProgress(tasks) {
-    let flag = false;
-    for (let v of tasks) {
-        if (v.status == "in-progress") {
-            flag = true;
-            console.table(v);
-        }
-    }
-    if (flag == false) {
+    let filtered = tasks.filter((task) => task.status == status);
+    if (filtered.length > 0 ) {
+        console.table(...filtered);
+    } else {
         console.log("No tasks found");
     }
 }
