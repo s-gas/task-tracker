@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": 1,
+    "description": "Buy bread and milk",
+    "status": "todo",
+    "createdAt": "12/28/2025, 2:29:48 PM",
+    "updatedAt": "12/28/2025, 2:30:46 PM"
+  },
+  {
+    "id": 2,
+    "description": "Book course",
+    "status": "in-progress",
+    "createdAt": "12/28/2025, 2:45:33 PM",
+    "updatedAt": "12/28/2025, 3:39:09 PM"
+  },
+  {
+    "id": 3,
+    "description": "Buy phone case",
+    "status": "todo",
+    "createdAt": "12/28/2025, 2:46:54 PM",
+    "updatedAt": "12/28/2025, 2:46:54 PM"
+  },
+  {
+    "id": 4,
+    "description": "Buy milk",
+    "status": "todo",
+    "createdAt": "12/28/2025, 3:07:38 PM",
+    "updatedAt": "12/28/2025, 3:07:38 PM"
+  }
+]
