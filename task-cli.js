@@ -1,17 +1,30 @@
 #!/usr/bin/env node
 
+const fs = require("fs");
 let tasks = [];
 let args;
 
 try {
     args = getArgs();
+} catch (err) {
+    console.error(err.message);
+    process.exit(1);
+}
+if (!fs.existsSync("tasks.json")) {
+    fs.writeFileSync("tasks.json", JSON.stringify(tasks));
+} else {
+    const tasksJSON = fs.readFileSync("tasks.json", "utf-8");
+    tasks = JSON.parse(tasksJSON);
+}
+try {
     if (args[0] == "add") {
-        tasks = addTask(args, tasks);
+        tasks.push(addTask(args, tasks));
     }
 } catch (err) {
     console.error(err.message);
     process.exit(1);
 }
+fs.writeFileSync("tasks.json", JSON.stringify(tasks, null, 2));
 
 function getArgs() {
     const argv = process.argv;
