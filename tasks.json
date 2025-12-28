@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "description": "Buy milk",
+    "status": "todo",
+    "createdAt": "12/28/2025, 6:18:46 PM",
+    "updatedAt": "12/28/2025, 6:18:46 PM"
+  },
+  {
+    "id": 2,
+    "description": "Study german hard",
+    "status": "in-progress",
+    "createdAt": "12/28/2025, 6:21:36 PM",
+    "updatedAt": "12/28/2025, 6:22:03 PM"
+  }
+]

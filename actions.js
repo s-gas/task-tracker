@@ -113,13 +113,12 @@ function listTasks(args, tasks) {
 }
 
 function listAll(tasks) {
-    let flag = false;
-    for (let v of tasks) {
-        flag = true;
-        console.table(v);
-    }
-    if (flag == false) {
+    if (tasks.length == 0) {
         console.log("No tasks found");
+    } else {
+        for (let task of tasks) {
+            console.table(task);
+        }
     }
 }
 
@@ -130,7 +129,9 @@ function listFiltered(tasks, status) {
     }
     let filtered = tasks.filter((task) => task.status == status);
     if (filtered.length > 0 ) {
-        console.table(...filtered);
+        for (let task of filtered) {
+            console.table(task);
+        }
     } else {
         console.log("No tasks found");
     }
