@@ -7,28 +7,28 @@ This project is part of the recommended backend projects from [Roadmap.sh](https
 
 Adding a new task
 
-`./task-cli add "Buy groceries"`
+`./task-cli.js add "Buy groceries"`
 
 Updating and deleting tasks
 
-`./task-cli update 1 "Buy groceries and cook dinner"`
+`./task-cli.js update 1 "Buy groceries and cook dinner"`
 
-`./task-cli delete 1`
+`./task-cli.js delete 1`
 
 Marking a task as in progress or done
 
-`./task-cli mark-in-progress 1`
+`./task-cli.js mark-in-progress 1`
 
-`./task-cli mark-done 1`
+`./task-cli.js mark-done 1`
 
 Listing all tasks
 
-`./task-cli list`
+`./task-cli.js list`
 
 Listing tasks by status
 
-`./task-cli list done`
+`./task-cli.js list done`
 
-`./task-cli list todo`
+`./task-cli.js list todo`
 
-`./task-cli list in-progress`
+`./task-cli.js list in-progress`
