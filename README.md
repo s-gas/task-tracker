@@ -1,34 +1,46 @@
-## Description
-CLI app to track and manage tasks through a JSON file.
+# task-cli
 
-This project is part of the recommended backend projects from [Roadmap.sh](https://roadmap.sh/projects/task-tracker).
+## Description
+
+CLI app to track and manage tasks through a JSON file.
 
 ## How to run
 
-Adding a new task
+*Note: to run this project you need to have [Node.js](https://nodejs.org/en) installed.*
 
-`./task-cli.js add "Buy groceries"`
+```bash
+./task-cli.js <command> [arguments]
+```
 
-Updating and deleting tasks
+### Available commands:
 
-`./task-cli.js update 1 "Buy groceries and cook dinner"`
+- Add a new task:
 
-`./task-cli.js delete 1`
+```bash
+add "task description"
+```
 
-Marking a task as in progress or done
+- Update a task:
+```bash
+update <task-id> "new description"
+```
 
-`./task-cli.js mark-in-progress 1`
+- Delete a task:
+```bash
+delete <task-id>
+```
 
-`./task-cli.js mark-done 1`
+- Mark a task as in progress:
+```bash
+mark-in-progress <task-id>
+```
 
-Listing all tasks
+- Mark a task as done:
+```bash
+mark-done <task-id>
+```
 
-`./task-cli.js list`
-
-Listing tasks by status
-
-`./task-cli.js list done`
-
-`./task-cli.js list todo`
-
-`./task-cli.js list in-progress`
+- List all tasks, optionally filtered by status:
+```bash
+list [ todo | in-progress | done ]
+```

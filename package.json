@@ -4,9 +4,6 @@
   "version": "1.0.0",
   "description": "CLI app to track and manage tasks through a JSON file.",
   "main": "task-cli.js",
-  "bin": {
-    "task-cli": "./task-cli.js"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
