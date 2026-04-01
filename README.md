@@ -8,6 +8,20 @@ CLI app to track and manage tasks through a JSON file.
 
 *Note: to run this project you need to have [Node.js](https://nodejs.org/en) installed.*
 
+Clone this repository:
+
+```bash
+git clone https://github.com/simone-gasparini-94/task-tracker.git
+```
+
+Change to the project directory:
+
+```bash
+cd task-tracker
+```
+
+Run the program:
+
 ```bash
 ./task-cli.js <command> [arguments]
 ```
