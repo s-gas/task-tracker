@@ -56,5 +56,7 @@ mark-done <task-id>
 
 - List all tasks, optionally filtered by status:
 ```bash
-list [ todo | in-progress | done ]
+list [todo|in-progress|done]
 ```
+
+*Note: All commands need to be prefixed with `./task-cli.js`*
