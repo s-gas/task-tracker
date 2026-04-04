@@ -11,7 +11,7 @@ CLI app to track and manage tasks through a JSON file.
 Clone this repository:
 
 ```bash
-git clone https://github.com/simone-gasparini-94/task-tracker.git
+git clone https://github.com/s-gas/task-tracker.git
 ```
 
 Change to the project directory:
